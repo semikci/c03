@@ -1,51 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sekmekci <sekmekci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/12 03:21:22 by sekmekci          #+#    #+#             */
-/*   Updated: 2023/09/12 08:36:16 by sekmekci         ###   ########.fr       */
+/*   Created: 2023/09/12 08:39:58 by sekmekci          #+#    #+#             */
+/*   Updated: 2023/09/12 11:13:03 by sekmekci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdio.h>
-
-int	return_size(char *str)
-{
-	int	a;
-
-	a = 0;
-	while (str[a] != 0)
-		a++;
-	return (a);
-}
-
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
+#include <string.h>
+char	*ft_strstr(char *str, char *to_find)
 {
 	int	i;
-	int	k;
+	int	j;
 
 	i = 0;
-	k = 0;
-	while (dest[i] != 0)
-		i++;
-	while (src[k] != 0 && k < nb)
+	j = 0;
+	if(to_find[i] == 0)
+		return (str);
+	while (str[i] != 0)
 	{
-		dest[i] = src[k];
+		while (str[i + j] == to_find[j] && to_find[j] !=0)
+		{
+			j++;
+		}
+		if(to_find[j] == 0)
+			return (str + i);
+		j = 0;
 		i++;
-		k++;
 	}
-	dest[i] = 0;
-	return (dest);
+	return (0);
 }
 
 int	main(void)
 {
-	char dest[] = "semih";
-	char src[] = "";
-
-	printf("%s", ft_strncat(dest, src, 3));
+	char	str[] = "semih vurdu gol oldu";
+	char	to_find[] = "vurdu";
+	printf("%s\n", ft_strstr(str, to_find));
+	printf("%p\n", ft_strstr(str, to_find));
+	printf("%s\n", strstr(str, to_find));
+	printf("%p\n", strstr(str, to_find));
+	
 }

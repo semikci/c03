@@ -6,7 +6,7 @@
 /*   By: sekmekci <sekmekci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 22:15:02 by sekmekci          #+#    #+#             */
-/*   Updated: 2023/09/11 22:45:43 by sekmekci         ###   ########.fr       */
+/*   Updated: 2023/09/12 15:00:03 by sekmekci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ int	ft_strcmp(char *s1, char *s2)
 
 int	main(void)
 {
-	char	s1[] = "abcde";
-	char	s2[] = "abcdf";
+	char	s1[] = "abcdz";
+	char	s2[] = "abcd";
 
 	printf("%d\n", ft_strcmp(s1, s2));
 	printf("%d\n", strcmp(s1, s2));

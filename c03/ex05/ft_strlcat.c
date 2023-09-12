@@ -1,51 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sekmekci <sekmekci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/12 03:21:22 by sekmekci          #+#    #+#             */
-/*   Updated: 2023/09/12 08:36:16 by sekmekci         ###   ########.fr       */
+/*   Created: 2023/09/12 13:05:56 by sekmekci          #+#    #+#             */
+/*   Updated: 2023/09/12 15:23:50 by sekmekci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
 
-int	return_size(char *str)
+int ft_strlen(char *str)
 {
-	int	a;
-
-	a = 0;
-	while (str[a] != 0)
-		a++;
-	return (a);
+	unsigned int y;
+	while (str[y] != 0)
+		y++;
+	return (y);
 }
 
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
+unsigned int ft_strlcat(char *dest, char *src, unsigned int size)
 {
-	int	i;
-	int	k;
-
+	unsigned int i;
+	unsigned int j;
+	unsigned int dlen;
+	unsigned int slen;
+	
 	i = 0;
-	k = 0;
+	j = 0;
 	while (dest[i] != 0)
-		i++;
-	while (src[k] != 0 && k < nb)
+		j++;
+	dlen = j;
+	slen = ft_strlen(src);
+	if(size == 0 && size <= dlen)
+		return (slen + size);
+	while (src[i] != 0  && i < size - dlen -1)
 	{
-		dest[i] = src[k];
+		dest[j] = src[i];
 		i++;
-		k++;
+		j++; 
 	}
-	dest[i] = 0;
-	return (dest);
+	dest[j] = 0;
+	return (dlen + slen);
 }
 
-int	main(void)
+int main()
 {
-	char dest[] = "semih";
-	char src[] = "";
-
-	printf("%s", ft_strncat(dest, src, 3));
+	
 }
+
