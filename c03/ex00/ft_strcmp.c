@@ -6,7 +6,7 @@
 /*   By: sekmekci <sekmekci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 22:15:02 by sekmekci          #+#    #+#             */
-/*   Updated: 2023/09/12 15:00:03 by sekmekci         ###   ########.fr       */
+/*   Updated: 2023/09/14 16:30:54 by sekmekci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	ft_strcmp(char *s1, char *s2)
 			count++;
 		else if (s1[i] > s2[i])
 			return (s1[i] - s2[i]);
-		else 
+		else
 			return (s1[i] - s2[i]);
 		i++;
 	}
